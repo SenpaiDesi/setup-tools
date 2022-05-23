@@ -1,9 +1,11 @@
 @echo off
 title Starting...
 @echo Full discord bot  extension installer tool. Made by Senpai_Desi#4108
-@echo Do you wish to install the extensions? Press any key to do so.
-pause
-
+setlocal
+SET /P AREYOUSURE=Are you sure you wish to continue (Y/[N])? 
+IF /I "%AREYOUSURE%" NEQ "Y" GOTO END
+IF /I "%AREYOUSURE%" NEQ "N" GOTO START
+:START
 cls
 title Installing [discord.py]
 pip install discord.py[voice]
@@ -29,9 +31,6 @@ title Installing [pymongo(srv)]
 pip install pymongo[srv]
 cls
 
-title Installing [platform]
-pip install platform
-cls
 
 title Installing [typing]
 pip install typing
@@ -41,17 +40,32 @@ title Installing [asyncio]
 pip install asyncio
 cls
 
-title Installing [re]
-pip install re
+title Installing [regex]
+pip install regex
 cls
 
 title Installing [random]
 pip install random
 cls
 
+title Installing [gpiozero]
+pip install qpiozero
+cls
+
+title Installing [tqdm]
+pip install tqdm
+cls
+
+title Installing [aiofiles]
+pip install aiofiles
+cls
+
 title Installation Finished!
 @echo All possible extensions installed.
-@echo You need sqlite3 which can be found at:
-@echo ----------------------------------------
+@echo You need sqlite3 which needs to be manually installed.
+@echo -------------------------------------------------------
 @echo Thank you for using this tool!
 pause
+
+:END
+echo Exit.
